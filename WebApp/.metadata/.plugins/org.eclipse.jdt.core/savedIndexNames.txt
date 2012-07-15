@@ -1,0 +1,7 @@
+INDEX VERSION 1.126+/Users/marcofischer/Google Drive/UNI ZH/12-HS/Master-Projekt/github/mobilefood/WebApp/.metadata/.plugins/org.eclipse.jdt.core
+151653830.index
+3875826922.index
+2114796880.index
+3765020915.index
+241682911.index
+2036398409.index
