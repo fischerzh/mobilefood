@@ -1,8 +1,10 @@
 dataSource {
     pooled = true
-    driverClassName = "org.h2.Driver"
-    username = "sa"
-    password = ""
+    driverClassName = "com.mysql.jdbc.Driver"
+	dbCreate = "update"
+	url ="jdbc:mysql://www.freesql.org"
+    username = "unizh"
+    password = "MasterP2012"
 }
 hibernate {
     cache.use_second_level_cache = true
