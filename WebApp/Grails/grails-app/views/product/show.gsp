@@ -46,6 +46,13 @@
 							<dd><g:fieldValue bean="${productInstance}" field="name"/></dd>
 						
 					</g:if>
+					
+					<g:if test="${productInstance?.verwalters}">
+						<dt><g:message code="product.name.label" default="Verwalter" /></dt>
+						
+							<dd><g:fieldValue bean="${productInstance}" field="verwalter"/></dd>
+						
+					</g:if>
 				
 				</dl>
 

@@ -2,12 +2,18 @@
 <html>
 	<head>
 	<meta name="layout" content="bootstrap"/>
-	<r:require module="application"/>
 	</head>
 	
 	<body>
-		<p>Home Controller </p>
-	
+		<div class="row-fluid">
+
+			<div class="span9">
+				
+				<div class="page-header">
+					<h1>Home</h1>
+				</div>
+			</div>
+		</div>
 	</body>
 
 

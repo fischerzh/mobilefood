@@ -3,7 +3,7 @@ package org.example.demo
 import org.springframework.dao.DataIntegrityViolationException
 import grails.plugins.springsecurity.Secured
 
-@Secured(['ROLE_ADMIN'])
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class ProductController {
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
 	
