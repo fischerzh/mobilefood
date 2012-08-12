@@ -10,13 +10,13 @@ class BootStrap {
 		def user1 = User.findByUsername('marco') ?: new User(username: 'marco', enabled:true, password: 'pass', firstName: 'Marco', lastName: 'Fischer').save(failOnError: true)
 		def user2 = User.findByUsername('admin') ?: new User(username: 'admin', enabled:true, password: 'pass', firstName: 'Admin', lastName: 'Admin').save(failOnError: true)
 		
-		def verwalter1 = Verwalter.findByName('Ariel') ?: new Verwalter(name: 'Ariel').save(failOnError: true)
+//		def verwalter1 = Verwalter.findByName('Ariel') ?: new Verwalter(name: 'Ariel').save(failOnError: true)
 
 //		def product1 = Product.findByName('Banane') ?: new 
 //			Product(name: 'Banane', description: '', content: 'Bananenfutter', 
 //				verwalter: [verwalter1]).save(failOnError: true)
-		def verkaufsort1 = Verkaufsort.findByName('Zuerich') ?: new Verkaufsort(name: 'Zuerich', plz: 8000)
-		def manufacturer = Manufacturer.findByName('Migros') ?: new Manufacturer(name: 'Migros', verkaufsort: verkaufsort1).save(failOnError: true)
+//		def verkaufsort1 = Verkaufsort.findByOrt('Zuerich') ?: new Verkaufsort(ort: 'Zuerich', plz: 8000)
+//		def manufacturer = Manufacturer.findByName('Migros') ?: new Manufacturer(name: 'Migros', verkaufsort: verkaufsort1).save(failOnError: true)
 				
 		if (!user1.authorities.contains(userRole)) {
 			UserRole.create user1, userRole, true
