@@ -12,8 +12,12 @@ class BootStrap {
 		
 		def verwalter1 = Verwalter.findByName('Ariel') ?: new Verwalter(name: 'Ariel').save(failOnError: true)
 
-		def product1 = Product.findByName('Banane') ?: new Product(name: 'Banane', description: '', content: 'Bananenfutter', verwalter: [verwalter1]).save(failOnError: true)
-		
+//		def product1 = Product.findByName('Banane') ?: new 
+//			Product(name: 'Banane', description: '', content: 'Bananenfutter', 
+//				verwalter: [verwalter1]).save(failOnError: true)
+		def verkaufsort1 = Verkaufsort.findByName('Zuerich') ?: new Verkaufsort(name: 'Zuerich', plz: 8000)
+		def manufacturer = Manufacturer.findByName('Migros') ?: new Manufacturer(name: 'Migros', verkaufsort: verkaufsort1).save(failOnError: true)
+				
 		if (!user1.authorities.contains(userRole)) {
 			UserRole.create user1, userRole, true
 		}

@@ -14,7 +14,7 @@
 			<div class="span9">
 
 				<div class="page-header">
-					<g:link class="list" action="list">
+					<g:link class="list" action="index">
 								<i class="icon-list"></i>
 								<g:message code="default.list.label" args="[entityName]" />
 							</g:link>				
@@ -48,9 +48,9 @@
 					</g:if>
 					
 					<g:if test="${productInstance?.verwalters}">
-						<dt><g:message code="product.name.label" default="Verwalter" /></dt>
+						<dt><g:message code="product.verwalter.label" default="Verwalter" /></dt>
 						
-							<dd><g:fieldValue bean="${productInstance}" field="verwalter"/></dd>
+							<dd><g:fieldValue bean="${productInstance}" field="verwalters"/></dd>
 						
 					</g:if>
 				

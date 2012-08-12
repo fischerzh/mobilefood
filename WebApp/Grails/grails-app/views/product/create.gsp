@@ -13,7 +13,7 @@
 			<div class="span9">
 
 				<div class="page-header">
-					<g:link class="list" action="list">
+					<g:link class="list" action="index">
 								<i class="icon-list"></i>
 								<g:message code="default.list.label" args="[entityName]" />
 							</g:link>

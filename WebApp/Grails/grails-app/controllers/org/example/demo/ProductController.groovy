@@ -3,23 +3,24 @@ package org.example.demo
 import org.springframework.dao.DataIntegrityViolationException
 import grails.plugins.springsecurity.Secured
 
+
 @Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class ProductController {
     static allowedMethods = [create: ['GET', 'POST'], edit: ['GET', 'POST'], delete: 'POST']
-	
-    def index() {
-        redirect action: 'list', params: params
-    }
 
-    def list() {
+
+    def index() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+		def productInstanceList = Product.list(params)
+		def verwalterList = Verwalter.list()
+        [productInstanceList: productInstanceList, productInstanceTotal: Product.count(), verwalterList: verwalterList]
     }
 
     def create() {
 		switch (request.method) {
 		case 'GET':
         	[productInstance: new Product(params)]
+			
 			break
 		case 'POST':
 	        def productInstance = new Product(params)
@@ -38,7 +39,7 @@ class ProductController {
         def productInstance = Product.get(params.id)
         if (!productInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])
-            redirect action: 'list'
+            redirect action: 'index'
             return
         }
 
@@ -51,7 +52,7 @@ class ProductController {
 	        def productInstance = Product.get(params.id)
 	        if (!productInstance) {
 	            flash.message = message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])
-	            redirect action: 'list'
+	            redirect action: 'index'
 	            return
 	        }
 
@@ -61,7 +62,7 @@ class ProductController {
 	        def productInstance = Product.get(params.id)
 	        if (!productInstance) {
 	            flash.message = message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])
-	            redirect action: 'list'
+	            redirect action: 'index'
 	            return
 	        }
 
@@ -93,14 +94,14 @@ class ProductController {
         def productInstance = Product.get(params.id)
         if (!productInstance) {
 			flash.message = message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])
-            redirect action: 'list'
+            redirect action: 'index'
             return
         }
 
         try {
             productInstance.delete(flush: true)
 			flash.message = message(code: 'default.deleted.message', args: [message(code: 'product.label', default: 'Product'), params.id])
-            redirect action: 'list'
+            redirect action: 'index'
         }
         catch (DataIntegrityViolationException e) {
 			flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'product.label', default: 'Product'), params.id])

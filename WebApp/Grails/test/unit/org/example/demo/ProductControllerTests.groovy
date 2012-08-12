@@ -18,12 +18,12 @@ class ProductControllerTests {
 
     void testIndex() {
         controller.index()
-        assert "/product/list" == response.redirectedUrl
+        assert "/product/index" == response.redirectedUrl
     }
 
     void testList() {
 
-        def model = controller.list()
+        def model = controller.index()
 
         assert model.productInstanceList.size() == 0
         assert model.productInstanceTotal == 0

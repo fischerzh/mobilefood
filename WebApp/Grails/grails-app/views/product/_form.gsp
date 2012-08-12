@@ -26,3 +26,11 @@
 	<g:textField name="name" value="${productInstance?.name}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: productInstance, field: 'verwalters', 'error')} ">
+	<label for="verwalters">
+		<g:message code="product.verwalters.label" default="Name" />
+		
+	</label>
+	<g:textField name="name" value="${productInstance?.verwalters}"/>
+</div>
+

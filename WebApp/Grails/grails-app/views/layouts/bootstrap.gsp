@@ -25,7 +25,7 @@
 					<a class="brand" href="${createLink(uri: '/')}">Mobile Food Web
 						App</a>
 				</p>
-				<p align="right">
+				<p>
 					<sec:ifLoggedIn>
 						<sec:ifAllGranted roles="ROLE_ADMIN">
 						<div class="nav-collapse">
@@ -38,6 +38,8 @@
 								<g:link controller='user'>Users </g:link></li>
 								<li<%= controllerName == 'verwalter'? ' class="active"' : '' %>>
 								<g:link controller='verwalter'>Verwalter </g:link></li>
+								<li<%= controllerName == 'manufacturer'? ' class="active"' : '' %>>
+								<g:link controller='manufacturer'>Manufacturer </g:link></li>
 							</ul>
 						</div>
 						</sec:ifAllGranted>
@@ -51,8 +53,8 @@
 						</div>
 						</sec:ifAllGranted>
 						<div align="right">
-							<font color="grey"> Welcome <sec:username /> - <g:link
-									controller='logout'>Log Out </g:link>
+							<font color="grey"> Welcome <sec:username /> - 
+							<g:link	controller='logout'>Log Out </g:link>
 							</font>
 						</div>
 					</sec:ifLoggedIn>

@@ -45,7 +45,11 @@
 						
 							<td>${fieldValue(bean: productInstance, field: "name")}</td>
 							
-							<td>${fieldValue(bean: productInstance, field: "verwalters")}</td>
+							<td>
+								<g:each in="${verwalterList }" var="verwalter">
+									${verwalter.name }
+								</g:each>
+							</td>
 						
 							<td class="link">
 								<g:link action="show" id="${productInstance.id}" class="btn btn-small">Show &raquo;</g:link>
