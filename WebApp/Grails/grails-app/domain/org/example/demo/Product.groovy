@@ -25,7 +25,7 @@ class Product {
 	
 
 	static hasMany = [verwalters: Verwalter]
-	static hasOne = [manufacturer: Manufacturer, packaging: Packaging, distributor: Distributor, 
+	static belongsTo = [manufacturer: Manufacturer, packaging: Packaging, distributor: Distributor, 
 		ingredient: Ingredient, controlling: Controlling, productFamily: ProductFamily]
 	
     static constraints = {
